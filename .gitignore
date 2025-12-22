@@ -8,4 +8,4 @@
 # Consenti la cartella src e tutto il suo contenuto
 !/src/
 !/src/**
-
+!package.json

@@ -1,0 +1,11 @@
+
+# Ignora tutto nella root del repository
+/*
+
+# Ma non ignorare il file .gitignore
+!.gitignore
+
+# Consenti la cartella src e tutto il suo contenuto
+!/src/
+!/src/**
+

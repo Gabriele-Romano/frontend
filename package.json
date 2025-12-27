@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "deploy": "npm run build && npx gh-pages -d dist/frontend/browser",
+    "deploy": "npm run build -- --base-href /frontend/ && npx gh-pages -d dist/frontend/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

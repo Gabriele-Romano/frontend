@@ -1,0 +1,28 @@
+<div class="container">
+	<h1>Playlist strumentali</h1>
+
+	<div class="controls">
+		<button (click)="load()">Carica playlist strumentali</button>
+	</div>
+
+	<div class="note">Non è necessario inserire il token per questa azione.</div>
+
+	<div *ngIf="error()" class="error">{{ error() }}</div>
+	<div *ngIf="loading()" class="loading">Caricamento...</div>
+
+	<div class="grid" *ngIf="playlists() && playlists().length">
+		<div class="card" *ngFor="let p of playlists() || []">
+			<ng-container *ngIf="p">
+				<img *ngIf="p.images?.length" [src]="p.images[0]?.url" alt="{{p.name}}" />
+				<div class="meta">
+					<a [href]="p.external_urls?.spotify" target="_blank" rel="noopener">{{ p.name }}</a>
+					<div class="sub">By {{ (p.owner && (p.owner.display_name || p.owner.id)) || 'Unknown' }}</div>
+					<div class="tracks">{{ p.tracks?.total || 0 }} brani</div>
+				</div>
+			</ng-container>
+		</div>
+	</div>
+
+	<div *ngIf="playlists() && playlists().length === 0 && !loading()" class="empty">Nessuna playlist trovata.</div>
+</div>
+

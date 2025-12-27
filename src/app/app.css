@@ -1,0 +1,17 @@
+:root { font-family: Arial, Helvetica, sans-serif; }
+.container { max-width: 960px; margin: 24px auto; padding: 12px; }
+h1 { margin: 0 0 12px 0; }
+.controls { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+.controls input { flex: 1; padding: 8px; font-size: 14px; }
+.controls button { padding: 8px 12px; }
+.note { font-size: 12px; color: #666; margin-bottom: 8px; }
+.error { color: #a00; margin: 8px 0; }
+.loading { color: #333; margin: 8px 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 12px; }
+.card { background: #fff; border: 1px solid #eee; border-radius: 6px; overflow: hidden; display: flex; gap: 8px; align-items: center; padding: 8px; }
+.card img { width: 72px; height: 72px; object-fit: cover; border-radius: 4px; }
+.meta a { font-weight: 600; color: #111; text-decoration: none; }
+.meta .sub { font-size: 12px; color: #666; }
+.meta .tracks { font-size: 12px; color: #444; margin-top: 4px; }
+.empty { color: #444; margin-top: 12px; }
+

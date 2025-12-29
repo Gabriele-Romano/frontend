@@ -1,28 +1,40 @@
+<!-- Contenitore principale dell'app -->
 <div class="container">
+	<!-- Titolo della pagina -->
 	<h1>Playlist strumentali</h1>
 
+	<!-- Controlli: il pulsante invoca il metodo `load()` del componente -->
 	<div class="controls">
 		<button (click)="load()">Carica playlist strumentali</button>
 	</div>
 
+	<!-- Nota informativa: questa azione non richiede token -->
 	<div class="note">Non è necessario inserire il token per questa azione.</div>
 
+	<!-- Messaggi di stato: `error()` e `loading()` sono getter/segni del componente -->
 	<div *ngIf="error()" class="error">{{ error() }}</div>
 	<div *ngIf="loading()" class="loading">Caricamento...</div>
 
+	<!-- Griglia di playlist: `playlists()` ritorna l'array di playlist -->
 	<div class="grid" *ngIf="playlists() && playlists().length">
-		<div class="card" *ngFor="let p of playlists() || []">
-			<ng-container *ngIf="p">
+		<!-- Card per ogni playlist nell'array; usa un ng-container per filtrare elementi vuoti -->
+		<ng-container *ngFor="let p of playlists() || []">
+			<div class="card" *ngIf="p && (p.name || p.images?.length)">
+				<!-- Immagine di copertina (se presente) -->
 				<img *ngIf="p.images?.length" [src]="p.images[0]?.url" alt="{{p.name}}" />
 				<div class="meta">
+					<!-- Link alla playlist su Spotify, apre in nuova scheda -->
 					<a [href]="p.external_urls?.spotify" target="_blank" rel="noopener">{{ p.name }}</a>
+					<!-- Autore: usa display_name oppure l'id come fallback -->
 					<div class="sub">By {{ (p.owner && (p.owner.display_name || p.owner.id)) || 'Unknown' }}</div>
+					<!-- Numero di brani nella playlist -->
 					<div class="tracks">{{ p.tracks?.total || 0 }} brani</div>
 				</div>
-			</ng-container>
-		</div>
+			</div>
+		</ng-container>
 	</div>
 
+	<!-- Messaggio quando non ci sono playlist e non è in caricamento -->
 	<div *ngIf="playlists() && playlists().length === 0 && !loading()" class="empty">Nessuna playlist trovata.</div>
 </div>
 

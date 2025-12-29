@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+/* Stili globali e sfondo scuro dell'app
+	 Commenti in italiano:
+	 - Qui definiamo il background principale dell'intera pagina.
+	 - Usiamo un gradiente radiale sovrapposto a un gradiente lineare
+		 per dare profondità senza appesantire i colori.
+	 - Il colore del testo è chiaro per garantire contrasto su sfondo scuro.
+*/
+/* Stili globali e sfondo scuro dell'app */
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	min-height: 100vh;
+	background: radial-gradient(1200px 600px at 10% 10%, #071226 0%, transparent 20%),
+							linear-gradient(180deg, #0b1220 0%, #07101a 100%);
+	color: #e6eef8;
+}
+
+/* Mantieni il contenitore principale visivamente distinto ma trasparente
+	 - La classe `.container` non imposta sfondo per lasciare visibile il
+		 gradiente globale.
+*/
+.container { background: transparent; }
+
+/* Miglioramento del contrasto delle card su sfondo scuro
+	 - Aggiungiamo un'ombra più pronunciata per far risaltare le card.
+	 - Le card usano sfondo semitrasparente (definito in `app.css`) per
+		 un effetto di profondità coerente con il tema scuro.
+*/
+.card { box-shadow: 0 6px 24px rgba(2, 6, 23, 0.6); }
+
